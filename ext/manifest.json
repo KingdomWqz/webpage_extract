@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "WebPage Extract",
+    "short_name": "webExtract",
+    "version": "0.1.0",
+    "description": "页面结构化分析",
+    "browser_action": {
+        "default_title": "webExtract"
+      },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "<all_urls>"
+    ]
+}
