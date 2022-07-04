@@ -1,23 +1,36 @@
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log(request, sender);
+  if (request.action === "Log") {
+    console.log("Log");
 
-// chrome.browserAction.onClicked.addListener(() => {
-//     chrome.tabs.captureVisibleTab({ format: 'jpeg', quality: 100 }, (dataUrl) => {
-//         if (!chrome.runtime.lastError) {
-//             const imgData = dataUrl.split('base64,')[1];
-//             fetch('https://www.paddlepaddle.org.cn/paddlehub-api/image_classification/chinese_ocr_db_crnn_mobile', {
-//                 method: "POST",
-//                 mode: 'cors',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify({
-//                     'image': imgData
-//                 })
-//             }).then(res => res.json()).then(data => {
-//                 console.log(data)
-//             })
-//         }
-//     });
-// });
+    const debuggee = { tabId: request.tabId };
+    chrome.debugger.attach(debuggee, "1.3", onAttach.bind(null, debuggee));
+  } else if (request.action === "Test") {
+    console.log("Test");
 
+    const debuggee = { tabId: request.tabId };
+    // chrome.debugger.sendCommand(debuggee, "Runtime.enable");
+    // chrome.debugger.sendCommand(debuggee, "Page.enable");
+    // chrome.debugger.sendCommand(debuggee, "Log.enable");
+    // chrome.debugger.sendCommand(debuggee, "Log.clear");
 
+    // chrome.tabs.reload(request.tabId);
+  }
+  return true;
+});
 
+const onAttach = (debuggee) => {
+  if (chrome.runtime.lastError) {
+    alert(chrome.runtime.lastError.message);
+    return;
+  }
+
+  console.log("attach succeed");
+  console.log(debuggee.tabId);
+  //   chrome.debugger.sendCommand({ tabId: debuggee.tabId }, "Log.clear");
+  //   chrome.debugger.sendCommand({ tabId: debuggee.tabId }, "Log.enable");
+
+  //   chrome.debugger.onEvent.addListener((source, method, param) => {
+  //     console.log(source);
+  //   });
+};
