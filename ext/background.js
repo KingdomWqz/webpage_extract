@@ -9,12 +9,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log("Test");
 
     const debuggee = { tabId: request.tabId };
-    // chrome.debugger.sendCommand(debuggee, "Runtime.enable");
+    chrome.debugger.sendCommand(debuggee, "Runtime.enable");
     // chrome.debugger.sendCommand(debuggee, "Page.enable");
-    // chrome.debugger.sendCommand(debuggee, "Log.enable");
-    // chrome.debugger.sendCommand(debuggee, "Log.clear");
+    chrome.debugger.sendCommand(debuggee, "Log.enable");
 
-    // chrome.tabs.reload(request.tabId);
+    chrome.debugger.onEvent.addListener((source, method, param) => {
+      if (method == "Runtime.consoleAPICalled") {
+        if (param.type == "warning" || param.type == "error") {
+          console.log(source, method, param);
+        }
+      }
+    });
   }
   return true;
 });
