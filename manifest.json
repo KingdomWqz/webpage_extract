@@ -1,0 +1,1 @@
+{"name": "zrpa.chrome.bridge", "description": "zRPA chrome bridge", "path": "D:\\workspaces\\webpage_extract\\main.bat", "type": "stdio", "allowed_origins": ["chrome-extension://kjihmlheefejkegoahhcpehbifkoefgp/"]}

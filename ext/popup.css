@@ -1,0 +1,18 @@
+body {
+    width: 500px;
+    height: 500px;
+}
+
+.menu {
+    display:flex;
+    margin: 5px;
+}
+
+.menu button {
+    margin-right: 8px;
+}
+
+.area {
+    border:solid 1px black; 
+    margin: 5px 0;
+}
