@@ -224,6 +224,8 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
+console.log('haha');
+
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"]
 }
