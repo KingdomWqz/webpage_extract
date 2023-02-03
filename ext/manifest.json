@@ -5,7 +5,7 @@
     "version": "0.1.4",
     "description": "页面结构化分析",
     "action": {
-        "default_popup": "hello.html"
+        "default_popup": "popup.html"
     },
     "background": {
         "service_worker": "background.js"

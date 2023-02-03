@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.tabs.sendMessage(activeTab.id, { action: "capture" });
   });
 
+  document.querySelector('#table').addEventListener('click', async () => {
+    const imgData = await chrome.tabs.captureVisibleTab();
+    console.log(imgData);
+    
+  });
+
   document.getElementById("pageContent").addEventListener("click", async () => {
     const tabs = await chrome.tabs.query({ currentWindow: true, active: true });
     const activeTab = tabs[0];
