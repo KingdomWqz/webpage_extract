@@ -1,0 +1,36 @@
+{
+  "name": "webpage_extract",
+  "displayName": "网页抓取",
+  "version": "0.0.1",
+  "description": "对网页结构进行分析，捕获页面数据",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "test": "plasmo test"
+  },
+  "dependencies": {
+    "plasmo": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@plasmohq/prettier-plugin-sort-imports": "workspace:*",
+    "@types/chrome": "0.0.210",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "prettier": "2.8.3",
+    "typescript": "4.9.4"
+  },
+  "manifest": {
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "debugger",
+      "management"
+    ],
+    "host_permissions": [
+      "https://*/*"
+    ]
+  }
+}

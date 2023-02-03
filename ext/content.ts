@@ -1,3 +1,5 @@
+import type { PlasmoCSConfig } from "plasmo"
+
 let captureDiv = null;
 
 const capture_mousedown = (e) => {
@@ -221,3 +223,8 @@ chrome.runtime.onMessage.addListener(
         return true;
     }
 );
+
+export const config: PlasmoCSConfig = {
+  matches: ["<all_urls>"]
+}
+
