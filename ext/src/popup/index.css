@@ -1,17 +1,16 @@
 
 .body {
     width: 600px;
-    padding: 8px;
 }
 
 .header {
-    padding: 8px;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-
-.menu {
-    display:flex;
-    margin: 5px;
+.main {
+    padding: 8px
 }
 
 .menu button {
