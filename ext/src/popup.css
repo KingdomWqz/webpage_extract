@@ -1,7 +1,13 @@
-body {
-    width: 500px;
-    height: 500px;
+
+.body {
+    width: 600px;
+    padding: 8px;
 }
+
+.header {
+    padding: 8px;
+}
+
 
 .menu {
     display:flex;

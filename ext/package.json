@@ -9,10 +9,10 @@
     "test": "plasmo test"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "1.5.6",
-    "antd": "5.1.6",
+    "bootstrap": "^5.2.3",
     "plasmo": "workspace:*",
     "react": "18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
