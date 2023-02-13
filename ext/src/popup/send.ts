@@ -4,7 +4,7 @@ const getTables = async (callback) => {
     const activeTab = tabs[0];
     chrome.tabs.sendMessage(activeTab.id, { action: "getTables" }, (res) => {
         console.log(res);
-        callback(res.data.num);
+        callback(res.data);
     });
     return activeTab;
 }

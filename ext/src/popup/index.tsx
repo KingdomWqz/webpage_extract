@@ -1,16 +1,22 @@
 import { getTables } from "./send";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Alert, Container, Nav, Navbar } from "react-bootstrap";
+import { Alert, Container, Nav, Navbar, Table } from "react-bootstrap";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function IndexPopup() {
-  const [tableNum, setTableNum] = useState(0);
+  const [count, setCount] = useState(0);
+  const [tables, setTables] = useState([]);
 
   useEffect(() => {
-    const tab = getTables(setTableNum);
+    const tab = getTables(getTablesHandle);
   }, []);
+
+  const getTablesHandle = (list) => {
+    setCount(list.length);
+    setTables(list);
+  };
 
   const table_click = async () => {
     const imgData = await chrome.tabs.captureVisibleTab({ quality: 50 });
@@ -41,9 +47,31 @@ function IndexPopup() {
         </Container>
       </Navbar>
       <div className="main">
-        <h2>Table({tableNum})</h2>
-        <Alert variant="primary">This is a primary alert—check it out!</Alert>
-        <div>bbb</div>
+        <Alert variant="primary">
+          <Alert.Heading>Hey, nice to see you</Alert.Heading>
+          <p>
+            Aww yeah, you successfully read this important alert message. This
+            example text is going to run a bit longer so that you can see how
+            spacing within an alert works with this kind of content.
+          </p>
+        </Alert>
+        <h2>Table({count})</h2>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tables.map((item) => {
+              return (
+                <tr>
+                  <td>{item.name}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
       </div>
     </div>
   );
